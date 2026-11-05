@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trash | NexTask</title>
+
+    <script>
+        const savedSettings = JSON.parse(
+            localStorage.getItem("nextask_settings")
+        ) || {};
+
+        if (savedSettings.theme === "light") {
+            document.documentElement.classList.add("light-theme");
+        }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">N</div>
+            <span>NexTask</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="../index.html">Dashboard</a>
+            <a href="all-tasks.html">All Tasks</a>
+            <a href="trash.html" class="active">Trash</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+
+        <a href="../index.html" class="add-task-btn">
+            Back to Dashboard
+        </a>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="trash-page">
+
+        <section class="trash-heading">
+
+            <div>
+                <p class="eyebrow">RECENTLY REMOVED</p>
+
+                <h1>Trash</h1>
+
+                <p>
+                    Restore deleted tasks or permanently remove them.
+                </p>
+            </div>
+
+            <button
+                id="empty-trash-btn"
+                class="settings-btn"
+                type="button"
+            >
+                Empty Trash
+            </button>
+
+        </section>
+
+        <!-- Trash Information -->
+        <div class="trash-info">
+            <span id="trash-count">0 tasks</span>
+        </div>
+
+        <!-- Deleted Tasks -->
+        <section
+            id="trash-list"
+            class="trash-list"
+            aria-live="polite"
+        >
+        </section>
+
+        <!-- Empty State -->
+        <section id="trash-empty" class="trash-empty" hidden>
+
+            <div>🗑️</div>
+
+            <h2>Your trash is empty</h2>
+
+            <p>Deleted tasks will appear here.</p>
+
+            <a href="../index.html">Return to Dashboard</a>
+
+        </section>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../js/trash.js"></script>
+
+</body>
+</html>

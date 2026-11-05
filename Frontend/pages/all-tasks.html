@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All Tasks | NexTask</title>
+
+    <script>
+        const savedSettings = JSON.parse(
+            localStorage.getItem("nextask_settings")
+        ) || {};
+
+        if (savedSettings.theme === "light") {
+            document.documentElement.classList.add("light-theme");
+        }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">N</div>
+            <span>NexTask</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="../index.html">Dashboard</a>
+            <a href="all-tasks.html" class="active">All Tasks</a>
+            <a href="trash.html">Trash</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+
+        <a href="../index.html" class="add-task-btn">
+            Back to Dashboard
+        </a>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="all-tasks-page">
+
+        <section class="all-tasks-heading">
+
+            <div>
+                <p class="eyebrow">YOUR PRODUCTIVITY SPACE</p>
+
+                <h1>All Tasks</h1>
+
+                <p>
+                    Manage and organise all your tasks in one place.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Task Filters -->
+        <section class="task-filters">
+
+            <button class="filter-btn active" data-filter="all" type="button">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="pending" type="button">
+                Pending
+            </button>
+
+            <button class="filter-btn" data-filter="completed" type="button">
+                Completed
+            </button>
+
+            <button class="filter-btn" data-filter="overdue" type="button">
+                Overdue
+            </button>
+
+        </section>
+
+        <!-- Search and Sorting -->
+        <section class="task-tools">
+
+            <input
+                type="text"
+                id="task-search"
+                placeholder="Search tasks by title..."
+                aria-label="Search tasks"
+            >
+
+            <select id="task-sort" aria-label="Sort tasks">
+
+                <option value="earliest">Earliest Due Date</option>
+                <option value="latest">Latest Due Date</option>
+                <option value="newest">Recently Created</option>
+                <option value="oldest">Oldest Created</option>
+
+            </select>
+
+        </section>
+
+        <!-- Task Count -->
+        <div class="all-tasks-info">
+            <span id="all-tasks-count">0 tasks</span>
+        </div>
+
+        <!-- Task List -->
+        <section
+            id="all-tasks-list"
+            class="all-tasks-list"
+            aria-live="polite"
+        >
+        </section>
+
+        <!-- Empty State -->
+        <section id="all-tasks-empty" class="all-tasks-empty" hidden>
+
+            <div>📋</div>
+
+            <h2>No tasks found</h2>
+
+            <p>Try changing your filter or search.</p>
+
+            <a href="../index.html">Return to Dashboard</a>
+
+        </section>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../js/all-tasks.js"></script>
+
+</body>
+</html>

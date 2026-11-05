@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | NexTask</title>
+
+    <script>
+        const savedSettings = JSON.parse(
+            localStorage.getItem("nextask_settings")
+        ) || {};
+
+        if (savedSettings.theme === "light") {
+            document.documentElement.classList.add("light-theme");
+        }
+    </script>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">N</div>
+            <span>NexTask</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="../index.html">Dashboard</a>
+            <a href="all-tasks.html">All Tasks</a>
+            <a href="trash.html">Trash</a>
+            <a href="settings.html" class="active">Settings</a>
+        </nav>
+
+        <a href="../index.html" class="add-task-btn">
+            Back to Dashboard
+        </a>
+
+    </header>
+
+    <!-- Main Content -->
+    <main class="settings-page">
+
+        <section class="settings-heading">
+
+            <p class="eyebrow">MAKE IT YOURS</p>
+
+            <h1>Settings</h1>
+
+            <p>
+                Personalise your NexTask experience.
+            </p>
+
+        </section>
+
+        <!-- Appearance Settings -->
+        <section class="settings-section">
+
+            <h2>Appearance</h2>
+
+            <div class="setting-item">
+
+                <div>
+                    <h3>Theme</h3>
+                    <p>Choose how NexTask looks.</p>
+                </div>
+
+                <select id="theme-setting">
+                    <option value="dark">Dark Mode</option>
+                    <option value="light">Light Mode</option>
+                </select>
+
+            </div>
+
+        </section>
+
+        <!-- Task Preferences -->
+        <section class="settings-section">
+
+            <h2>Task Preferences</h2>
+
+            <div class="setting-item">
+
+                <div>
+                    <h3>Default Priority</h3>
+                    <p>Choose the default priority for new tasks.</p>
+                </div>
+
+                <select id="default-priority">
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+
+            </div>
+
+            <div class="setting-item">
+
+                <div>
+                    <h3>Default Category</h3>
+                    <p>Choose the default category for new tasks.</p>
+                </div>
+
+                <select id="default-category">
+                    <option value="Work">Work</option>
+                    <option value="Study">Study</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Other">Other</option>
+                </select>
+
+            </div>
+
+        </section>
+
+        <!-- Backup Settings -->
+        <section class="settings-section">
+
+            <h2>Backup & Restore</h2>
+
+            <div class="setting-item">
+
+                <div>
+                    <h3>Export Backup</h3>
+                    <p>Download your tasks and settings as a JSON file.</p>
+                </div>
+
+                <button
+                    id="export-backup"
+                    class="settings-btn"
+                    type="button"
+                >
+                    Export Backup
+                </button>
+
+            </div>
+
+            <div class="setting-item">
+
+                <div>
+                    <h3>Import Backup</h3>
+                    <p>Restore tasks and settings from a backup file.</p>
+                </div>
+
+                <input
+                    type="file"
+                    id="import-backup"
+                    accept=".json,application/json"
+                >
+
+            </div>
+
+        </section>
+
+        <!-- About NexTask -->
+        <section class="about-nextask">
+
+            <h2>About NexTask</h2>
+
+            <p>
+                NexTask helps you organise your daily tasks,
+                track your progress, and stay productive.
+            </p>
+
+            <span>Version 1.0</span>
+
+        </section>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="../js/settings.js"></script>
+
+</body>
+</html>
